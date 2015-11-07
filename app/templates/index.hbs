@@ -2,6 +2,10 @@
   Authorize Google via Implicit Grant
 </button>
 
+<button {{action 'authorizeProvider' 'google-oauth2'}}>
+  Authorize Google via Authorization Code Grant
+</button>
+
 {{#if authError}}
 Error: {{authError}}
 {{/if}}

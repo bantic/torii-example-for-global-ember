@@ -18,12 +18,28 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    // If you are running the example backend app (https://github.com/bantic/torii-example-for-global-ember-backend)
+    // locally, this can be uncommented:
+    //authorizationExchangeServerUrl: 'http://localhost:5000/exchange-authorization-code',
+
+    authorizationExchangeServerUrl: 'https://torii-example-backend.herokuapp.com/exchange-authorization-code',
+
     torii: {
       providers: {
         'google-oauth2-bearer': {
           apiKey: '777290297768-o0v0187l099c9ngv9f26q5bneg1uk10q.apps.googleusercontent.com',
           redirectUri: 'http://localhost:4200/',
           scope: 'email'
+        },
+        'google-oauth2': {
+          apiKey: '777290297768-o0v0187l099c9ngv9f26q5bneg1uk10q.apps.googleusercontent.com',
+          redirectUri: 'http://localhost:4200/',
+
+          // If accessType: 'offline' is granted, the authorization code exchange
+          // process will yield a refresh_token in addition to an access_token
+           accessType: 'offline',
+
+          // approvalPrompt: 'force' // default value: 'auto'
         }
       }
     }
