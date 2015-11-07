@@ -1,0 +1,17 @@
+<button {{action 'getGoogleAccessToken'}}>
+  Get Google OAuth 2.0 Access Token
+</button>
+
+{{#if authError}}
+  Error: {{authError}}
+{{/if}}
+
+{{#if accessToken}}
+  Access token: {{accessToken}}
+
+  <button {{action 'getUserData' accessToken}}>Get user data</button>
+
+  {{#if userData}}
+    {{userData}}
+  {{/if}}
+{{/if}}
