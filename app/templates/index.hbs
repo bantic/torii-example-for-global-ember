@@ -1,0 +1,11 @@
+<button {{action 'authorizeProvider' 'google-oauth2-bearer'}}>
+  Authorize Google via Implicit Grant
+</button>
+
+{{#if authError}}
+Error: {{authError}}
+{{/if}}
+
+{{#if authData}}
+Auth data: {{authData}}
+{{/if}}
