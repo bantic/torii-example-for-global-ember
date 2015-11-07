@@ -18,15 +18,8 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    torii: {
-      providers: {
-        'google-oauth2-bearer': {
-          apiKey: '777290297768-o0v0187l099c9ngv9f26q5bneg1uk10q.apps.googleusercontent.com',
-          redirectUri: 'http://localhost:4200/',
-          scope: 'email'
-        }
-      }
-    }
+    // apiKey: '777290297768-o0v0187l099c9ngv9f26q5bneg1uk10q.apps.googleusercontent.com'
+
   };
 
   if (environment === 'development') {
