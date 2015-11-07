@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('google-oauth2-bearer');
+  this.route('google-oauth2-code');
 });
 
 export default Router;

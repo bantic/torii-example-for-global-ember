@@ -1,0 +1,17 @@
+<button {{action 'getGoogleAuthorizationCode'}}>
+  Get Google OAuth 2.0 Authorization Code
+</button>
+
+{{#if authError}}
+  Error: {{authError}}
+{{/if}}
+
+{{#if authorizationCode}}
+  Authorization Code: {{authorizationCode}}
+
+  <button {{action 'getAccessToken' authorizationCode}}>Exchange code for access_token</button>
+
+  {{#if accessTokenData}}
+    Access token data: {{accessTokenData}}
+  {{/if}}
+{{/if}}
