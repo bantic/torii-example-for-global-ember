@@ -1,9 +1,19 @@
 <h2 id="title">Torii Demos</h2>
 
+<nav>
+  {{#if session.isAuthenticated}}
+    <p>Logged in as <b>{{session.currentUser.email}}</b></p>
+  {{else}}
+    <p>Not logged in.</p>
+  {{/if}}
+</nav>
+
 <ul>
   <li>{{link-to 'Index' 'index'}}</li>
   <li>{{#link-to 'google-oauth2-bearer'}}Google OAuth2 Implicit Grant{{/link-to}}</li>
   <li>{{#link-to 'google-oauth2-code'}}Google OAuth2 Authorization Code Grant{{/link-to}}</li>
+  <li>{{#link-to 'google-sign-in'}}Sign in with Google{{/link-to}}</li>
+  <li>{{#link-to 'secret'}}Secret (must be logged in){{/link-to}}</li>
 </ul>
 
 {{outlet}}

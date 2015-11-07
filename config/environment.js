@@ -21,10 +21,13 @@ module.exports = function(environment) {
     // If you are running the example backend app (https://github.com/bantic/torii-example-for-global-ember-backend)
     // locally, this can be uncommented:
     //authorizationExchangeServerUrl: 'http://localhost:5000/exchange-authorization-code',
+    //authenticationHost: 'http://localhost:5000',
 
     authorizationExchangeServerUrl: 'https://torii-example-backend.herokuapp.com/exchange-authorization-code',
+    authenticationHost: 'https://torii-example-backend.herokuapp.com',
 
     torii: {
+      sessionServiceName: 'session',
       providers: {
         'google-oauth2-bearer': {
           apiKey: '777290297768-o0v0187l099c9ngv9f26q5bneg1uk10q.apps.googleusercontent.com',
