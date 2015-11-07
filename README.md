@@ -35,3 +35,23 @@ as for the `google-oauth2-bearer` provider.
 There is a simple server running at heroku that can exchange an authorization code. The configuration already points
 at this endpoint to handle the server-side exchange for the access token.
 Demo server code is at: https://github.com/bantic/torii-example-for-global-ember-backend
+
+### Set up social sign in with google
+
+Follow the steps above for the authorization code grant flow.
+
+Ensure the torii configuration specifies a `sessionServiceName` property of 'session'. This is necessary to opt-in to Torii's session management.
+Notice that a torii-adapter called 'application' has been created.
+
+When signing in with google, the torii session service will:
+  * `open` the torii built-in 'google-oauth2' provider, resulting in an authorization code
+  * torii's session will attempt to find a 'google-oauth2' adapter, and fall back to using the 'application' adapter
+  * the authorization code from the provider will be passed to the `open` method of the 'application' adapter
+  * the 'application' adapter, which we have written for this application, will:
+    * POST the authorization code to our own backend
+    * our backend will exchange this code for an access token and then use the token to retrieve the user's email
+    * our backend will log in the user by email, or create a new user for this email if none exists
+    * our backend responds with a session id for this user
+  * the adapter receives the session id and stores it in local storage
+  * the adapter returns a promise that resolves with a `{currentUser}` object
+  * the torii session service merges that `currentUser` property and transitions the session to its authenticate state
